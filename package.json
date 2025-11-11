@@ -1,0 +1,14 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+        "start": "",
+        "dev": ""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {}
+}
