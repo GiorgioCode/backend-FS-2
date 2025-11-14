@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema(
         productos: [
             {
                 id: {
-                    type: mongoose.Schema.Types.Mixed,
+                    type: mongoose.Schema.Types.Mixed, // Acepta Number o String
                     required: true,
                 },
                 nombre: {
@@ -24,7 +24,7 @@ const orderSchema = new mongoose.Schema(
                 cantidad: {
                     type: Number,
                     required: true,
-                    min: [1, "La cantidad minima a ordenar es 1"],
+                    min: [1, "La cantidad debe ser al menos 1"],
                 },
             },
         ],
@@ -43,7 +43,9 @@ const orderSchema = new mongoose.Schema(
     }
 );
 
+// Índice para búsquedas más rápidas por usuario
 orderSchema.index({ usuario: 1 });
 
 const Order = mongoose.model("Order", orderSchema);
+
 export default Order;

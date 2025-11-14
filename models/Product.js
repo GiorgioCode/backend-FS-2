@@ -4,12 +4,12 @@ const productSchema = new mongoose.Schema(
     {
         nombre: {
             type: String,
-            require: [true, "El nombre del producto es requerido"],
+            required: [true, "El nombre del producto es requerido"],
             trim: true,
         },
         descripcion: {
             type: String,
-            required: [true, "La descripcion es requerida"],
+            required: [true, "La descripción es requerida"],
             trim: true,
         },
         precio: {
@@ -19,7 +19,7 @@ const productSchema = new mongoose.Schema(
         },
         imagen: {
             type: String,
-            required: [true, "La imagen de producto es requerida"],
+            required: [true, "La imagen es requerida"],
             trim: true,
         },
     },
@@ -27,6 +27,7 @@ const productSchema = new mongoose.Schema(
         timestamps: true,
         toJSON: {
             transform: function (doc, ret) {
+                // Agregar campo id numérico para compatibilidad con frontend
                 ret.id = ret._id.toString();
                 delete ret._id;
                 delete ret.__v;
@@ -37,4 +38,5 @@ const productSchema = new mongoose.Schema(
 );
 
 const Product = mongoose.model("Product", productSchema);
+
 export default Product;
